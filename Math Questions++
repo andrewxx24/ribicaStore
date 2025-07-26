@@ -1,0 +1,26 @@
+@echo off
+setlocal enabledelayedexpansion
+
+echo Generating 50 math questions:
+echo.
+
+for /L %%i in (1,1,50) do (
+    set /a op=!random! %% 3
+    set /a a=!random! %% 100 + 1
+    set /a b=!random! %% 100 + 1
+    
+    if !op! == 0 (
+        set /a res=a + b
+        echo %%i) What is !a! + !b! ?
+    ) else if !op! == 1 (
+        set /a res=a - b
+        echo %%i) What is !a! - !b! ?
+    ) else (
+        set /a res=a * b
+        echo %%i) What is !a! * !b! ?
+    )
+)
+
+echo.
+pause
+
